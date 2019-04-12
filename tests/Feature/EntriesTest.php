@@ -20,13 +20,17 @@ class EntriesTest extends TestCase
 
     /** @test */
     public function a_user_can_store_an_entry()
-    {
-        $this->withoutExceptionHandling();
-        
+    {        
         $attributes = factory(Entry::class)->raw();
 
         $this->post('/entries', $attributes);
         
         $this->assertDatabaseHas('entries', $attributes);
+    }
+
+    /** @test */
+    public function a_user_can_view_entries()
+    {
+        $this->get('/entries')->assertOk();
     }
 }
