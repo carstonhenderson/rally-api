@@ -1,36 +1,38 @@
 @extends('layouts.app')
 
+@section('title', 'Create a new entry')
+
 @section('content')
     <form action="/entries" method="POST">
         @csrf
 
-        <p>How are you?</p>
+        <p class="mb-4">How are you?</p>
 
-        <div>
+        <div class="mb-2">
             <input type="radio" name="mood" id="great" value="great">
 
             <label for="great">Great</label>
         </div>
 
-        <div>
+        <div class="mb-2">
             <input type="radio" name="mood" id="good" value="good">
 
             <label for="good">Good</label>
         </div>
 
-        <div>
+        <div class="mb-2">
             <input type="radio" name="mood" id="fine" value="fine">
 
             <label for="fine">Fine</label>
         </div>
 
-        <div>
+        <div class="mb-2">
             <input type="radio" name="mood" id="bad" value="bad">
 
             <label for="bad">Bad</label>
         </div>
 
-        <div>
+        <div class="mb-4">
             <input type="radio" name="mood" id="terrible" value="terrible">
 
             <label for="terrible">Terrible</label>
