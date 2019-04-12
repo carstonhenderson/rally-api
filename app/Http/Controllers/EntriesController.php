@@ -9,7 +9,9 @@ class EntriesController extends Controller
 {
     public function index()
     {
-        return Entry::all();
+        $entries = Entry::all();
+
+        return view('entries.index', ['entries' => $entries]);
     }
 
     public function create()
