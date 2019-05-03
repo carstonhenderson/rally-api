@@ -10,11 +10,9 @@ These instructions will get you a copy of Rally up and running on your local mac
 
 Make sure to install the following items before setting up Rally:
 
-```
-Composer
-NPM
-Vagrant
-```
+* [Composer](https://getcomposer.org/download/)
+* [NPM](https://www.npmjs.com/get-npm)
+* [Vagrant](https://www.vagrantup.com/docs/installation/)
 
 ### Installing
 
