@@ -10,4 +10,21 @@ class Entry extends Model
         'mood',
         'notes'
     ];
+    
+    protected $appends = [
+        "emoji"
+    ];
+    
+    protected $moods = [
+        "great" => "😁",
+        "good" => "🙂",
+        "fine" => "😐",
+        "bad" => "🙁",
+        "terrible" => "😞"
+    ];
+
+    public function getEmojiAttribute()
+    {
+        return $this->moods[$this->mood];
+    }
 }
