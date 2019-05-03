@@ -8,7 +8,7 @@ These instructions will get you a copy of Rally up and running on your local mac
 
 ### Prerequisites
 
-Make sure to install the following items before installing Rally:
+Make sure to install the following items before setting up Rally:
 
 ```
 Composer
@@ -66,8 +66,7 @@ Run the tests using PHPUnit in the root of the project directory:
 vendor/bin/phpunit
 ```
 
-## Built With
+## Built with
 
 * [Laravel](https://laravel.com)
 * [Tailwind](https://tailwindcss.com/docs/what-is-tailwind/)
-* [Vue](https://vuejs.org)
