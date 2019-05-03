@@ -6,52 +6,41 @@
     <form action="/entries" method="POST">
         @csrf
 
-        <p class="mb-4">How are you?</p>
+        <p class="block font-bold mb-4">How are you?</p>
 
         <div class="mb-2">
             <input type="radio" name="mood" id="great" value="great">
-
             <label for="great">Great</label>
         </div>
 
         <div class="mb-2">
             <input type="radio" name="mood" id="good" value="good">
-
             <label for="good">Good</label>
         </div>
 
         <div class="mb-2">
             <input type="radio" name="mood" id="fine" value="fine">
-
             <label for="fine">Fine</label>
         </div>
 
         <div class="mb-2">
             <input type="radio" name="mood" id="bad" value="bad">
-
             <label for="bad">Bad</label>
         </div>
 
-        <div class="mb-4">
+        <div class="mb-8">
             <input type="radio" name="mood" id="terrible" value="terrible">
-
             <label for="terrible">Terrible</label>
         </div>
 
-        <div>
-            <label for="notes">What happened today?</label>
-        </div>
+        <label for="notes" class="block font-bold mb-4">What's happening?</label>
+
+        <textarea name="notes" id="notes" class="w-full h-32 border shadow rounded mb-8 appearance-none w-full bg-white px-4 py-2 pr-8"></textarea>
+
+        <label for="emotions" class="block font-bold mb-4">How do you feel?</label>
 
         <div>
-            <textarea name="notes" id="notes"></textarea>
-        </div>
-
-        <div>
-            <label for="emotions">Which emotions have you felt today?</label>
-        </div>
-
-        <div>
-            <select name="emotions" id="emotions" multiple>
+            <select name="emotions" id="emotions" class="w-full border shadow rounded mb-8 appearance-none w-full bg-white px-4 py-2 pr-8" multiple>
                 <optgroup label="Positive">
                     <option value="amazed">Amazed</option>
                     <option value="comfortable">Comfortable</option>
@@ -111,6 +100,6 @@
             </select>
         </div>
 
-        <button type="submit">Save entry</button>
+        <button type="submit" class="bg-blue text-white py-2 px-4 mb-2 rounded shadow float-right">Save entry</button>
     </form>
 @endsection
