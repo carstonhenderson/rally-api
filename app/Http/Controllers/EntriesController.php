@@ -32,7 +32,7 @@ class EntriesController extends Controller
 
     public function show(Entry $entry)
     {
-        //
+        return view('entries.show', ['entry' => $entry]);
     }
 
     public function edit(Entry $entry)
