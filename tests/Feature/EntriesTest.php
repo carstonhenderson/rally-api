@@ -33,4 +33,12 @@ class EntriesTest extends TestCase
     {
         $this->get('/entries')->assertOk();
     }
+
+    /** @test */
+    public function a_user_can_view_an_entry()
+    {
+        $entry = factory(Entry::class)->create();
+
+        $this->get("/entries/{$entry->id}")->assertOk();
+    }
 }
