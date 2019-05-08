@@ -18,33 +18,37 @@
 </head>
 <body class="bg-grey-lightest">
     <div id="app" class="h-screen flex flex-col justify-between font-sans">
-        <nav class="p-4 flex justify-between items-center bg-green">
-            <a href="{{ url('/') }}" class="text-grey-lighter text-lg font-bold no-underline">
-                {{ config('app.name', 'Laravel') }}
-            </a>
-
-            <p class="text-grey-lighter">@yield('title')</p>
+        <nav class="p-4 bg-green">
+            <div class="container mx-auto flex justify-between items-center">
+                <a href="{{ url('/') }}" class="text-grey-lighter text-lg font-bold no-underline">
+                    {{ config('app.name', 'Laravel') }}
+                </a>
+    
+                <p class="text-grey-lighter">@yield('title')</p>
+            </div>
         </nav>
 
-        <main class="flex-1 overflow-auto p-4">
+        <main class="container mx-auto flex-1 overflow-auto p-4">
             @yield('content')
         </main>
 
-        <nav class="p-4 bg-green">
-            <ul class="flex justify-between items-center list-reset">
-                <li class="w-1/3">
-                    <a href="#" class="text-grey-lighter text-lg no-underline">Insight</a>
-                </li>
+        @if (!(Request::is('login') ||Request::is('register')))
+            <nav class="p-4 bg-green">
+                <ul class="container mx-auto flex justify-between items-center list-reset">
+                    <li class="w-1/3">
+                        <a href="#" class="text-grey-lighter text-lg no-underline">Insight</a>
+                    </li>
 
-                <li  class="w-1/3 text-center">
-                    <a href="#" class="text-grey-lighter text-lg no-underline py-2 px-4 bg-green-dark rounded">Entries</a>
-                </li>
-                
-                <li  class="w-1/3 text-right">
-                    <a href="#" class="text-grey-lighter text-lg no-underline">Settings</a>
-                </li>
-            </ul>
-        </nav>
+                    <li  class="w-1/3 text-center">
+                        <a href="#" class="text-grey-lighter text-lg no-underline py-2 px-4 bg-green-dark rounded">Entries</a>
+                    </li>
+                    
+                    <li  class="w-1/3 text-right">
+                        <a href="#" class="text-grey-lighter text-lg no-underline">Settings</a>
+                    </li>
+                </ul>
+            </nav>
+        @endif
     </div>
 </body>
 </html>
