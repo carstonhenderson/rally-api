@@ -18,6 +18,7 @@ class EntriesController extends Controller
     {
         return view('entries.create');
     }
+    
     public function store(Request $request)
     {
         $attributes = $request->validate([
