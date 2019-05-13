@@ -35,7 +35,7 @@
 
         <label for="notes" class="block font-bold mb-4">What's happening?</label>
 
-        <textarea name="notes" id="notes" class="w-full h-32 border shadow rounded mb-8 appearance-none w-full bg-white px-4 py-2 pr-8"></textarea>
+        <textarea name="notes" id="notes" class="w-full h-32 border shadow rounded mb-8 appearance-none bg-white px-4 py-2 pr-8"></textarea>
 
         <label for="emotions" class="block font-bold mb-4">How do you feel?</label>
 
