@@ -9,7 +9,7 @@ class EntriesController extends Controller
 {
     public function index()
     {
-        $entries = Entry::all();
+        $entries = Entry::all()->sortByDesc('created_at');
 
         return view('entries.index', ['entries' => $entries]);
     }
@@ -28,7 +28,9 @@ class EntriesController extends Controller
 
         Entry::create($attributes);
 
-        return redirect('/entries');
+        return redirect('/entries')->with([
+            'status' => 'Entry added!'
+        ]);
     }
 
     public function show(Entry $entry)
@@ -38,16 +40,29 @@ class EntriesController extends Controller
 
     public function edit(Entry $entry)
     {
-        //
+        return view('entries.edit', ['entry' => $entry]);
     }
 
     public function update(Request $request, Entry $entry)
     {
-        //
+        $attributes = $request->validate([
+            'mood' => 'required',
+            'notes' => 'nullable'
+        ]);
+
+        $entry->update($attributes);
+
+        return redirect("/entries/{$entry->id}")->with([
+            'status' => 'Entry updated!'
+        ]);
     }
 
     public function destroy(Entry $entry)
     {
-        //
+        $entry->delete();
+
+        return redirect('/entries')->with([
+            'status' => 'Entry deleted!'
+        ]);
     }
 }
