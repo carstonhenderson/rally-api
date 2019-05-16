@@ -2,6 +2,12 @@
 
 @section('title', 'Entries')
 
+@if (session('status'))
+    @section('message')
+        <div class="-mt-4 -mx-4 bg-purple p-4 text-white text-center">{{ session('status') }}</div>
+    @endsection
+@endif
+
 @section('content')
     <div class="flex justify-between mb-8">
         <h5 class="text-grey-dark">{{ $entries->count() }} <span class="font-normal">entries</span></h5>
