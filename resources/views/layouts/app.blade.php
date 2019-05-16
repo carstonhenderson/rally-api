@@ -29,10 +29,11 @@
         </nav>
 
         <main class="container mx-auto flex-1 overflow-auto p-4">
+            @yield('message')
             @yield('content')
         </main>
 
-        @if (!(Request::is('login') ||Request::is('register')))
+        @if (!(Request::is('login') ||Request::is('register') || Request::is('password/reset') || Request::is('password/reset/*')))
             <nav class="p-4 bg-green">
                 <ul class="container mx-auto flex justify-between items-center list-reset">
                     <li class="w-1/3">
