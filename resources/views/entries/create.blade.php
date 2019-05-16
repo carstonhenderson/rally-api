@@ -6,41 +6,110 @@
     <form action="/entries" method="POST">
         @csrf
 
-        <p class="block font-bold mb-4">How are you?</p>
+        <div class="mb-4">
+            <p class="block font-bold mb-2">How are you?</p>
 
-        <div class="mb-2">
-            <input type="radio" name="mood" id="great" value="great">
-            <label for="great">Great</label>
+            <div class="mb-2">
+                <input 
+                    type="radio" 
+                    name="mood" 
+                    id="great" 
+                    value="great"
+                >
+
+                <label 
+                    for="great"
+                    class="{{ $errors->has('mood') ? 'text-red' : '' }}"
+                >Great</label>
+            </div>
+    
+            <div class="mb-2">
+                <input 
+                    type="radio" 
+                    name="mood" 
+                    id="good" 
+                    value="good"
+                >
+
+                <label 
+                    for="good"
+                    class="{{ $errors->has('mood') ? 'text-red' : '' }}"
+                >Good</label>
+            </div>
+    
+            <div class="mb-2">
+                <input 
+                    type="radio" 
+                    name="mood" 
+                    id="fine" 
+                    value="fine"
+                >
+
+                <label 
+                    for="fine"
+                    class="{{ $errors->has('mood') ? 'text-red' : '' }}"
+                >Fine</label>
+            </div>
+    
+            <div class="mb-2">
+                <input 
+                    type="radio" 
+                    name="mood" 
+                    id="bad" 
+                    value="bad"
+                >
+
+                <label 
+                    for="bad" 
+                    class="{{ $errors->has('mood') ? 'text-red' : '' }}"
+                >Bad</label>
+            </div>
+    
+            <div class="{{ $errors->has('mood') ? 'mb-2' : '' }}">
+                <input 
+                    type="radio" 
+                    name="mood" 
+                    id="terrible" 
+                    value="terrible"
+                >
+
+                <label 
+                    for="terrible"
+                    class="{{ $errors->has('mood') ? 'text-red' : '' }}"
+                >Terrible</label>
+            </div>
+
+            @if ($errors->has('mood'))
+                <div role="alert" class="text-red text-sm">{{ $errors->first('mood') }}</div>
+            @endif
         </div>
 
-        <div class="mb-2">
-            <input type="radio" name="mood" id="good" value="good">
-            <label for="good">Good</label>
+
+        <div class="mb-4">
+            <label for="notes" class="block font-bold mb-2">What's happening?</label>
+
+            <textarea 
+                name="notes" 
+                id="notes" 
+                class="w-full h-32 border shadow rounded appearance-none bg-white px-4 py-2 pr-8 {{ $errors->has('notes') ? 'border-red mb-2' : 'border-grey-light' }}"
+            ></textarea>
+
+            @if ($errors->has('notes'))
+                <div role="alert" class="text-red text-sm">{{ $errors->first('notes') }}</div>
+            @endif
         </div>
 
-        <div class="mb-2">
-            <input type="radio" name="mood" id="fine" value="fine">
-            <label for="fine">Fine</label>
-        </div>
 
-        <div class="mb-2">
-            <input type="radio" name="mood" id="bad" value="bad">
-            <label for="bad">Bad</label>
-        </div>
-
-        <div class="mb-8">
-            <input type="radio" name="mood" id="terrible" value="terrible">
-            <label for="terrible">Terrible</label>
-        </div>
-
-        <label for="notes" class="block font-bold mb-4">What's happening?</label>
-
-        <textarea name="notes" id="notes" class="w-full h-32 border shadow rounded mb-8 appearance-none bg-white px-4 py-2 pr-8"></textarea>
-
-        <label for="emotions" class="block font-bold mb-4">How do you feel?</label>
-
-        <div>
-            <select name="emotions" id="emotions" class="w-full border shadow rounded mb-8 appearance-none w-full bg-white px-4 py-2 pr-8" multiple>
+        
+        <div class="mb-4">
+            <label for="emotions" class="block font-bold mb-2">How do you feel?</label>
+            
+            <select 
+                name="emotions" 
+                id="emotions" 
+                class="w-full border shadow rounded appearance-none w-full bg-white px-4 py-2 pr-8 h-32 {{ $errors->has('emotions') ? 'border-red mb-2' : 'border-grey-light' }}" 
+                multiple
+            >
                 <optgroup label="Positive">
                     <option value="amazed">Amazed</option>
                     <option value="comfortable">Comfortable</option>
@@ -62,44 +131,47 @@
                 </optgroup>
 
                 <optgroup label="Negative">
-                        <option value="angry">Angry</option>
-                        <option value="annoyed">Annoyed</option>
-                        <option value="anxious">Anxious</option>
-                        <option value="ashamed">Ashamed</option>
-                        <option value="bitter">Bitter</option>
-                        <option value="bored">Bored</option>
-                        <option value="confused">Confused</option>
-                        <option value="depressed">depressed</option>
-                        <option value="disgusted">Disgusted</option>
-                        <option value="embarrassed">Embarrassed</option>
-                        <option value="envious">Envious</option>
-                        <option value="frustrated">Frustrated</option>
-                        <option value="furious">Furious</option>
-                        <option value="hurt">Hurt</option>
-                        <option value="inadequate">Inadequate</option>
-                        <option value="insecure">Insecure</option>
-                        <option value="irritated">Irritated</option>
-                        <option value="jealous">Jealous</option>
-                        <option value="lonely">Lonely</option>
-                        <option value="lost">Lost</option>
-                        <option value="miserable">Miserable</option>
-                        <option value="nervous">Nervous</option>
-                        <option value="overwhelmed">Overwhelmed</option>
-                        <option value="resentful">Resentful</option>
-                        <option value="sad">Sad</option>
-                        <option value="scared">Scared</option>
-                        <option value="self-conscious">Self-conscious</option>
-                        <option value="stupid">Stupid</option>
-                        <option value="tense">Tense</option>
-                        <option value="terrified">terrified</option>
-                        <option value="trapped">Trapped</option>
-                        <option value="uncomfortable">Uncomfortable</option>
-                        <option value="worried">Worried</option>
-                        <option value="worthless">Worthless</option>
+                    <option value="angry">Angry</option>
+                    <option value="annoyed">Annoyed</option>
+                    <option value="anxious">Anxious</option>
+                    <option value="ashamed">Ashamed</option>
+                    <option value="bitter">Bitter</option>
+                    <option value="bored">Bored</option>
+                    <option value="confused">Confused</option>
+                    <option value="depressed">depressed</option>
+                    <option value="disgusted">Disgusted</option>
+                    <option value="embarrassed">Embarrassed</option>
+                    <option value="envious">Envious</option>
+                    <option value="frustrated">Frustrated</option>
+                    <option value="furious">Furious</option>
+                    <option value="hurt">Hurt</option>
+                    <option value="inadequate">Inadequate</option>
+                    <option value="insecure">Insecure</option>
+                    <option value="irritated">Irritated</option>
+                    <option value="jealous">Jealous</option>
+                    <option value="lonely">Lonely</option>
+                    <option value="lost">Lost</option>
+                    <option value="miserable">Miserable</option>
+                    <option value="nervous">Nervous</option>
+                    <option value="overwhelmed">Overwhelmed</option>
+                    <option value="resentful">Resentful</option>
+                    <option value="sad">Sad</option>
+                    <option value="scared">Scared</option>
+                    <option value="self-conscious">Self-conscious</option>
+                    <option value="stupid">Stupid</option>
+                    <option value="tense">Tense</option>
+                    <option value="terrified">terrified</option>
+                    <option value="trapped">Trapped</option>
+                    <option value="uncomfortable">Uncomfortable</option>
+                    <option value="worried">Worried</option>
+                    <option value="worthless">Worthless</option>
                 </optgroup>
             </select>
         </div>
 
-        <button type="submit" class="bg-blue text-white py-2 px-4 mb-2 rounded shadow float-right">Save entry</button>
+        <button 
+            type="submit" 
+            class="bg-blue text-white py-2 px-4 mb-2 rounded shadow float-right"
+        >Save entry</button>
     </form>
 @endsection
