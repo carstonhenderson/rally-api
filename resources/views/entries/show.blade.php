@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
-@section('title', "View Entry")
+@section('title', "View entry")
+
+@if (session('status'))
+    @section('message')
+        <div class="mb-4 -mt-4 -mx-4 bg-purple p-4 text-white text-center">{{ session('status') }}</div>
+    @endsection
+@endif
 
 @section('content')
     <div class="flex justify-between mb-8">
