@@ -41,4 +41,34 @@ class EntriesTest extends TestCase
 
         $this->get("/entries/{$entry->id}")->assertOk();
     }
+
+    /** @test */
+    public function a_user_can_edit_an_entry()
+    {
+        $entry = factory(Entry::class)->create();
+
+        $this->get("/entries/{$entry->id}/edit")->assertOk();
+    }
+
+    /** @test */
+    public function a_user_can_udpate_an_entry()
+    {
+        $entry = factory(Entry::class)->create();
+
+        $attributes = factory(Entry::class)->raw();
+
+        $this->patch("/entries/{$entry->id}", $attributes);
+
+        $this->assertDatabaseHas('entries', $attributes);
+    }
+
+    /** @test */
+    public function a_user_can_delete_an_entry()
+    {
+        $entry = factory(Entry::class)->create();
+
+        $this->delete("/entries/{$entry->id}");
+
+        $this->assertDatabaseMissing('entries', $entry->getAttributes());
+    }
 }
