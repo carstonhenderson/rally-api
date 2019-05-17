@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\User;
 use Illuminate\Database\Eloquent\Model;
 
 class Entry extends Model
@@ -26,5 +27,10 @@ class Entry extends Model
     public function getEmojiAttribute()
     {
         return $this->moods[$this->mood];
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
