@@ -37,15 +37,15 @@
             <nav class="p-4 bg-green">
                 <ul class="container mx-auto flex justify-between items-center list-reset">
                     <li class="w-1/3">
-                        <a href="#" class="text-grey-lighter text-lg no-underline">Insight</a>
+                        <a href="/insights" class="text-grey-lighter text-lg no-underline">Insights</a>
                     </li>
 
                     <li  class="w-1/3 text-center">
-                        <a href="#" class="text-grey-lighter text-lg no-underline py-2 px-4 bg-green-dark rounded">Entries</a>
+                        <a href="/entries" class="text-grey-lighter text-lg no-underline py-2 px-4 bg-green-dark rounded">Entries</a>
                     </li>
                     
                     <li  class="w-1/3 text-right">
-                        <a href="#" class="text-grey-lighter text-lg no-underline">Settings</a>
+                        <a href="/settings" class="text-grey-lighter text-lg no-underline">Settings</a>
                     </li>
                 </ul>
             </nav>
