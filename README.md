@@ -12,6 +12,7 @@ Make sure to install the following items before setting up Rally:
 
 * [Composer](https://getcomposer.org/download/)
 * [NPM](https://www.npmjs.com/get-npm)
+* [Yarn](https://www.yarnpkg.com/en/docs/install)
 * [Vagrant](https://www.vagrantup.com/docs/installation/)
 
 ### Installing
@@ -27,10 +28,12 @@ composer install
 Next, install the NPM dependencies:
 
 ```shell
-npm install
+yarn install
 ```
 
-Generate an app key:
+Rename `.env.example` to `.env`. 
+
+Then, generate an app key:
 
 ```shell
 php artisan key:generate
