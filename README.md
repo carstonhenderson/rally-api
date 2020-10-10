@@ -39,6 +39,12 @@ Then, generate an app key:
 php artisan key:generate
 ```
 
+Install Passport:
+
+```shell
+php artisan passport:install
+```
+
 Install Homestead:
 
 ```shell
